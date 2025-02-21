@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: dbt_tutorial
+    schema: jaffle_shop
+
+    tables:
+      - name: customers
+        description: "Table for customers"
+
+      - name: orders
+        description: "Table for orders"
+
+
+    
