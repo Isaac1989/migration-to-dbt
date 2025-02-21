@@ -2,10 +2,10 @@
 {% set old_relation = adapter.get_relation(
       database = "dbt_tutorial",
       schema = "jaffle_shop",
-      identifier = "customer_orders"
+      identifier = "hw_customer_orders"
 ) -%}
 
-{% set dbt_relation = ref('fct_customer_orders') %}
+{% set dbt_relation = ref('hw_fct_customer_orders') %}
 
 {% if execute %}
 {{ audit_helper.compare_relations(
