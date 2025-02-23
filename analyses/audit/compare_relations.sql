@@ -1,3 +1,10 @@
+{{
+
+    config(
+        materialized='ephemeral'
+    )
+}}
+
 
 {% set old_relation = adapter.get_relation(
       database = "dbt_tutorial",

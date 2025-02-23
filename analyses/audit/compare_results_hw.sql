@@ -1,3 +1,10 @@
+{{
+  config(
+    materialized='ephemeral'
+  )
+
+}}
+
 with a as (
 
     
@@ -16,32 +23,7 @@ select
       , 
      
    
-    "surname" 
-    
-      , 
-     
-   
-    "givenname" 
-    
-      , 
-     
-   
-    "first_order_date" 
-    
-      , 
-     
-   
-    "order_count" 
-    
-      , 
-     
-   
-    "total_lifetime_value" 
-    
-      , 
-     
-   
-    "order_value_dollars" 
+    "order_placed_at" 
     
       , 
      
@@ -51,13 +33,53 @@ select
       , 
      
    
-    "payment_status" 
+    "total_amount_paid" 
+    
+      , 
+     
+   
+    "payment_finalized_date" 
+    
+      , 
+     
+   
+    "customer_first_name" 
+    
+      , 
+     
+   
+    "customer_last_name" 
+    
+      , 
+     
+   
+    "transaction_seq" 
+    
+      , 
+     
+   
+    "customer_sales_seq" 
+    
+      , 
+     
+   
+    "nvsr" 
+    
+      , 
+     
+   
+    "customer_lifetime_value" 
+    
+      , 
+     
+   
+    "fdos" 
      
   
 
 
 
-from "dbt_tutorial"."jaffle_shop"."customer_orders"
+from "dbt_tutorial"."jaffle_shop"."hw_customer_orders"
 
 
 ),
@@ -80,32 +102,7 @@ select
       , 
      
    
-    "surname" 
-    
-      , 
-     
-   
-    "givenname" 
-    
-      , 
-     
-   
-    "first_order_date" 
-    
-      , 
-     
-   
-    "order_count" 
-    
-      , 
-     
-   
-    "total_lifetime_value" 
-    
-      , 
-     
-   
-    "order_value_dollars" 
+    "order_placed_at" 
     
       , 
      
@@ -115,13 +112,53 @@ select
       , 
      
    
-    "payment_status" 
+    "total_amount_paid" 
+    
+      , 
+     
+   
+    "payment_finalized_date" 
+    
+      , 
+     
+   
+    "customer_first_name" 
+    
+      , 
+     
+   
+    "customer_last_name" 
+    
+      , 
+     
+   
+    "transaction_seq" 
+    
+      , 
+     
+   
+    "customer_sales_seq" 
+    
+      , 
+     
+   
+    "nvsr" 
+    
+      , 
+     
+   
+    "customer_lifetime_value" 
+    
+      , 
+     
+   
+    "fdos" 
      
   
 
 
 
-from "dbt_tutorial"."jaffle_shop"."fct_customer_orders"
+from "dbt_tutorial"."jaffle_shop"."hw_fct_customer_orders"
 
 
 ),
@@ -210,6 +247,7 @@ final as (
 
     -- from summary_stats
     -- order by in_a desc, in_b desc
+
     select * from all_records
     where not (in_a and in_b)
     order by order_id, in_a desc, in_b desc
